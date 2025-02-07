@@ -1,4 +1,4 @@
-import img from "../../../assets/images/icon-success-check.svg"
+import img from "../assets/icon-success-check.svg"
 
 export default function Success() {
     return (
