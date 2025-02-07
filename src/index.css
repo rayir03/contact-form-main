@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+  /* Primary */
+  --green-lighter: hsl(148, 38%, 91%);
+  --green-medium: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+
+  /* Neutral */
+  --white: hsl(0, 0%, 100%);
+  --grey-medium: hsl(186, 15%, 59%);
+  --grey-darker: hsl(187, 24%, 22%);
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*:not(:focus-visible) {
+  outline: none;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  line-height: 1.5;
+  display: flex;
+  place-items: 100vh;
+  min-height: 100vh;
+  background-color: var(--green-lighter);
+  color: var(--grey-darker);
+}
+#root {
+  width: 100%;
+}
+
+main {
+  width: calc(100% - 2rem);
+  max-width: 800px;
+  background-color: var(--white);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+}
+
+/* form styles */
+
+.form-control {
+  margin: 1rem 0 1.25rem;
+}
+
+/* labels */
+.form-control label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+fieldset{
+  border: none;
+}
+
+.form-control label::after,
+legend::after {
+  content: "*";
+  font-weight: 700;
+  margin-left: 0.5rem;
+  color: var(--green-medium);
+}
+
+/* inputs */
+
+.form-control input,
+.form-control textarea,
+.radio-container div {
+  width: 100%;
+  border: 1px solid var(--green-medium);
+  border-radius: 5px;
+  color: inherit;
+  padding: 0.75rem 1.75rem;
+  font-family: inherit;
+  font-size: 1.15rem;
+
+  &:hover {
+    border: 1px solid var(--green-lighter);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--grey-darker);
+  }
+}
+
+.form-control textarea {
+  aspect-ratio: 4 / 3;
+}
+
+/*  radio and checkbox inputs */
+
+.radio-container div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-block: 1rem;
+  padding: 0.25rem 1.75rem;
+  font-size: 1.15rem;
+
+  &:has(input:checked) {
+    background-color: var(--green-lighter);
+    border: 1px solid var(--green-medium);
+  }
+}
+
+.radio-container label::after {
+  content: "";
+}
+
+.radio-container input,
+.checkbox-container input {
+  width: auto;
+  scale: 1.5;
+  accent-color: var(--green-medium);
+  cursor: pointer;
+}
+.radio-container label,
+.checkbox-container label {
+  cursor: pointer;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+/* submit button */
+
+.form-control button {
+  background-color: var(--green-medium);
+  color: var(--white);
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 1.75rem;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--grey-darker);
+  }
+}
+
+/* errors */
+
+.errorMsg {
+  /* display: none; */
+  color: var(--red);
+  margin-top: 0.5rem;
+}
+
+fieldset + .errorMsg,
+.checkbox-container + .errorMsg {
+  margin-top: 0;
+}
+
+input.error,
+textarea.error {
+  border: 1px solid var(--red);
+}
+
+/* success */
+.success-container {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  translate: -50% 0;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--grey-darker);
+  color: var(--white);
+}
+
+.success-container h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.success-container p {
+  color: var(--green-lighter);
+}
+
+.contact-data {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--grey-lighter);
+}
+
+/* footer */
+
+footer {
+  text-align: center;
+}
+
+footer a {
+  color: inherit;
+  padding: 1rem;
+}
+
+/* desktop design */
+
+@media (width >= 720px) {
+  main {
+    padding: 2rem 2.5rem;
+    margin: 3rem auto;
+  }
+  h1 {
+    margin: 0 0 1rem;
+  }
+  .name-container,
+  .radio-container {
+    display: flex;
+    gap: 1rem;
+  }
+  .name-container .form-control {
+    margin: 0;
+  }
+  .name-container > * {
+    flex: 1;
+  }
+  .form-control textarea {
+    aspect-ratio: initial;
+    min-height: 6rem;
+  }
+  .checkbox-container {
+    margin-top: 2rem;
+  }
+  .form-control:has(button) {
+    margin: 2.5rem 0 0;
+  }
+}
+
